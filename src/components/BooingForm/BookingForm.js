@@ -13,7 +13,7 @@ const BookingForm = ({ onFormSubmit, isFormSubmitted, availableTimes }) => {
       date: defaultDate.toISOString().substring(0, 10),
       time: defaultTime,
       people: 1,
-      occasion: "",
+      occasion: "Celebration",
       firstName: "",
       lastName: "",
       email: "",
@@ -151,7 +151,11 @@ const BookingForm = ({ onFormSubmit, isFormSubmitted, availableTimes }) => {
         </select>
       </div>
       <div className="reservation-button">
-        <Button type="submit" disabled={formik.isSubmitting}>
+        <Button
+          type="submit"
+          title="Booking a table!"
+          disabled={formik.isSubmitting}
+        >
           Submit
         </Button>
       </div>
