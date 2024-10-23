@@ -11,7 +11,7 @@ Welcome to my project repository. This project was in Meta Frontend Developer Ca
 - Added unit tests
 - Added the validation of booking form: First Name, Last Name, Email in booking form are validated by Formik and Yup packages
 - Added the semantics and responsiveness of the web
-- Project are pushed to Github.
+- Project is pushed to Github.
 
 ## Available commands and pages
 
