@@ -39,7 +39,7 @@ const Specials = () => {
   const navigate = useNavigate();
 
   const onClickMenu = () => {
-    navigate(pages.get("orders").path);
+    navigate(pages.get("order").path);
   };
   return (
     <div className="specials">
