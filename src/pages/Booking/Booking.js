@@ -13,8 +13,7 @@ const Booking = () => {
   const navigate = useNavigate();
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  const handleFormSubmit = (e, formValues) => {
-    e.preventDefault();
+  const handleFormSubmit = (formValues) => {
     setIsFormSubmitted(true);
     const areAllFieldsFilled = Object.values(formValues).every(
       (value) => value
@@ -60,7 +59,7 @@ const Booking = () => {
             navigate(pages.get("home").path);
           }}
           title="Reservation Completed!"
-          description="Thank you for choosing Little Lemon! Please check your email for a confirmation email. We are excited to see you soon!"
+          description="Please check your email for the confirmation."
         />
       )}
     </div>

@@ -24,6 +24,9 @@
 
 .popout-description {
   color: #495e57;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
 }
 
 .popout-title {
