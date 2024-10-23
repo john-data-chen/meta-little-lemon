@@ -33,6 +33,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `npm test`
 
-Start the unit tests of Header and Footer.
+Start the unit tests.
 
 ## Thank you for review, Good luck!
