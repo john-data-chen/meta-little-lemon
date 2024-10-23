@@ -9,14 +9,16 @@ Welcome to my project repository. This project was in Meta Frontend Developer Ca
 - Followed the design and implementation of the UX UI
 - Added appropriate accessibility tags
 - Added unit tests
-  -- Only Header and Footer have test cases
-  -- There is not enough to write all test cases for a short time, please let me pass!
 - Added the validation of booking form
-  -- Date should be the same as your device (default and not validated)
-  -- Time should be the 2 hours later from the hour you check the form (default and not validated)
-  -- First Name, Last Name, Email are validated by Formik and Yup packages
 - Added the semantics and responsiveness of the web
 - Project are pushed to Github.
+
+## Before you start
+
+- Only Header and Footer have test cases. (there is not enough to write all test cases for a short time, please let me pass!)
+- Date in booking form should be the same as your device (default and not validated)
+- Time in booking form should be the 2 hours later from the hour you check the form (default and not validated)
+- First Name, Last Name, Email in booking form are validated by Formik and Yup packages
 
 ## Available commands and pages
 
@@ -39,3 +41,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ### `npm test`
 
 Start the unit tests of Header and Footer.
+
+## Thank you for review, Good luck!
