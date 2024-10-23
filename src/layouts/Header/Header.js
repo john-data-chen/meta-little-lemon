@@ -20,7 +20,7 @@ const Header = () => {
     { id: "home", label: "Home", link: "/" },
     { id: "menu", label: "Menu", link: "/menu" },
     { id: "booking", label: "Booking", link: "/booking" },
-    { id: "order", label: "Order", link: "/orders" },
+    { id: "order", label: "Order", link: "/order" },
     { id: "login", label: "Login", link: "/login" },
     { id: "about", label: "About", link: "/about" },
   ];

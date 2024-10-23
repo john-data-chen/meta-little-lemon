@@ -13,8 +13,10 @@ const App = () => {
         <Routes>
           <Route path={pages.get("home").path} element={<Home />} />
           <Route path={pages.get("booking").path} element={<Booking />} />
-          <Route path={pages.get("order").path} element={<InMaintenance />} />
           <Route path={pages.get("menu").path} element={<InMaintenance />} />
+          <Route path={pages.get("about").path} element={<InMaintenance />} />
+          <Route path={pages.get("login").path} element={<InMaintenance />} />
+          <Route path={pages.get("order").path} element={<InMaintenance />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Main>
