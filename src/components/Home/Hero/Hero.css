@@ -16,8 +16,9 @@
   margin: 0 auto;
 }
 
-.title {
+h1.title {
   color: #f4ce14;
+  text-align: left;
   font-size: 3.5rem;
   line-height: 0.5rem;
 }
@@ -64,7 +65,7 @@ p {
     margin-top: 96px;
   }
 
-  .title {
+  h1.title {
     color: #f4ce14;
     font-size: 32px;
     line-height: 0.5rem;
