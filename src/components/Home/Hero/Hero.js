@@ -8,7 +8,7 @@ import pages from "../../../utils/pagesMap";
 const Hero = () => {
   const navigate = useNavigate();
   const onClickReserve = () => {
-    navigate(pages.get("reservations").path);
+    navigate(pages.get("booking").path);
   };
 
   return (
@@ -23,7 +23,7 @@ const Hero = () => {
             featuring delectable bruschettas, succulent burgers, and refreshing
             Greek salads, is a testament to our belief that food is an art.
           </p>
-          <Button title={"Reserve a table"} onClick={onClickReserve} />
+          <Button title={"Booking"} onClick={onClickReserve} />
         </div>
 
         <img
