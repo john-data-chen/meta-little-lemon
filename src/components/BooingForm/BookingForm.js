@@ -4,31 +4,25 @@ import "./BookingForm.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const BookingForm = ({
-  onFormSubmit,
-  isFormSubmitted,
-  availableTimes,
-  dispatchOnDateChange,
-}) => {
+const BookingForm = ({ onFormSubmit, isFormSubmitted, availableTimes }) => {
+  const defaultDate = new Date();
   const defaultTime = availableTimes[0];
 
   const formik = useFormik({
     initialValues: {
-      date: "",
+      date: defaultDate.toISOString().substring(0, 10),
       time: defaultTime,
-      people: "",
+      people: 1,
+      occasion: "",
       firstName: "",
       lastName: "",
-      phoneNumber: "",
       email: "",
     },
     validationSchema: Yup.object({
-      firstName: Yup.string().required("First name is required"),
-      lastName: Yup.string().required("Last name is required"),
-      phoneNumber: Yup.number().required("Phone number is required"),
-      email: Yup.string()
-        .email("Invalid email format")
-        .required("Email is required"),
+      people: Yup.number().min(1, "At least 1 person").required("Required"),
+      firstName: Yup.string().required("Required"),
+      lastName: Yup.string().required("Required"),
+      email: Yup.string().email("Invalid email format").required("Required"),
     }),
     onSubmit: (values, { setSubmitting }) => {
       onFormSubmit(values);
@@ -72,19 +66,29 @@ const BookingForm = ({
         <label htmlFor="people" className="containter-item-title">
           Number of people
         </label>
+        {formik.touched.people && formik.errors.people ? (
+          <div className="error-message" style={{ color: "red" }}>
+            {formik.errors.people}
+          </div>
+        ) : null}
         <input
           type="number"
           id="people"
           name="people"
           onChange={formik.handleChange}
           value={formik.values.people}
-          className={isFormSubmitted && !formik.values.people ? "error" : ""}
+          className={
+            formik.touched.people && formik.errors.people ? "error" : ""
+          }
         />
       </div>
       <div className="reservation-container">
         <label htmlFor="firstName" className="containter-item-title">
           First Name
         </label>
+        {formik.touched.firstName && formik.errors.firstName ? (
+          <div className="error-message">{formik.errors.firstName}</div>
+        ) : null}
         <input
           type="text"
           id="firstName"
@@ -95,14 +99,14 @@ const BookingForm = ({
             formik.touched.firstName && formik.errors.firstName ? "error" : ""
           }
         />
-        {formik.touched.firstName && formik.errors.firstName ? (
-          <div className="error-message">{formik.errors.firstName}</div>
-        ) : null}
       </div>
       <div className="reservation-container">
         <label htmlFor="lastName" className="containter-item-title">
           Last Name
         </label>
+        {formik.touched.lastName && formik.errors.lastName ? (
+          <div className="error-message">{formik.errors.lastName}</div>
+        ) : null}
         <input
           type="text"
           id="lastName"
@@ -113,34 +117,14 @@ const BookingForm = ({
             formik.touched.lastName && formik.errors.lastName ? "error" : ""
           }
         />
-        {formik.touched.lastName && formik.errors.lastName ? (
-          <div className="error-message">{formik.errors.lastName}</div>
-        ) : null}
-      </div>
-      <div className="reservation-container">
-        <label htmlFor="phoneNumber" className="containter-item-title">
-          Phone Number
-        </label>
-        <input
-          type="tel"
-          id="phoneNumber"
-          name="phoneNumber"
-          onChange={formik.handleChange}
-          value={formik.values.phoneNumber}
-          className={
-            formik.touched.phoneNumber && formik.errors.phoneNumber
-              ? "error"
-              : ""
-          }
-        />
-        {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-          <div className="error-message">{formik.errors.phoneNumber}</div>
-        ) : null}
       </div>
       <div className="reservation-container">
         <label htmlFor="email" className="containter-item-title">
           Email
         </label>
+        {formik.touched.email && formik.errors.email ? (
+          <div className="error-message">{formik.errors.email}</div>
+        ) : null}
         <input
           type="email"
           id="email"
@@ -149,13 +133,28 @@ const BookingForm = ({
           value={formik.values.email}
           className={formik.touched.email && formik.errors.email ? "error" : ""}
         />
-        {formik.touched.email && formik.errors.email ? (
-          <div className="error-message">{formik.errors.email}</div>
-        ) : null}
       </div>
-      <Button type="submit" disabled={formik.isSubmitting}>
-        Submit
-      </Button>
+      <div className="reservation-container">
+        <label htmlFor="occasion" className="containter-item-title">
+          Occasion
+        </label>
+        <select
+          id="occasion"
+          name="occasion"
+          onChange={formik.handleChange}
+          value={formik.values.occasion}
+          className={isFormSubmitted && !formik.values.occasion ? "error" : ""}
+        >
+          <option value="celebration">Celebration</option>
+          <option value="business">Business</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div className="reservation-button">
+        <Button type="submit" disabled={formik.isSubmitting}>
+          Submit
+        </Button>
+      </div>
     </form>
   );
 };

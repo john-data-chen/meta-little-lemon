@@ -41,3 +41,8 @@ select:focus {
 .error {
   border: 1px solid red !important;
 }
+
+.error-message {
+  color: red;
+  font-size: 1rem;
+}
